@@ -30,4 +30,10 @@ describe Riddle do
     }.to_not raise_error
   end
 
+	it "shouldn't exception on a load error" do
+		expect {
+      subject.execute("require 'nopers'; puts 'nopers'")
+    }.to_not raise_error
+	end
+
 end

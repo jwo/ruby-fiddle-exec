@@ -12,6 +12,8 @@ class Riddle
       eval(code)
     rescue => exc
       @exception = exc
+    rescue LoadError => le
+      @exception = le
     rescue SyntaxError => se
       @exception = se
     end
