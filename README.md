@@ -14,31 +14,34 @@ Param name: Code
 
 ### Exceptions:
 
-```code=1/0```
-
 ```
+code=1/0
+
+#result
 {"output":"","exception":"divided by 0","result":"divided by 0"}
 ```
 
 ### Return Values
-```code=1/5.to_f```
-
 ```
+code=1/5.to_f
+
+#result
 {"output":"","exception":null,"result":0.2}
 ```
 
 ### STDOUT (puts)
-```code= puts 1/5.to_f```
-
 ```
+code=puts 1/5.to_f
+
+#result
 {"output":"0.2\n","exception":null,"result":null}
 ```
 
 # TODOs
 
+1. Select which ruby to run against (rubinus, jruby, 187, 192, 193)
 1. Ability to specify which gems to include
 2. Add capybara to test json outputting
-
 
 Created by
 ---------
