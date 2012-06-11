@@ -3,6 +3,18 @@ require_relative "../lib/riddle"
 
 describe Riddle do
 
+  it "should be able to extend string" do
+    palindrome_code=<<EORUBY
+      class String
+        def palindrome?
+          self.reverse == self
+        end
+      end
+      "yoy".palindrome?
+EORUBY
+    subject.execute(palindrome_code).should be_true
+  end
+
   it "should give me the result" do
     subject.execute("1+1").should eq(2)
   end

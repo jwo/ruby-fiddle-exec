@@ -1,3 +1,9 @@
+class Object
+  def create_block
+    Proc.new {}
+  end
+end
+
 class Riddle 
   attr_reader :output, :exception, :result
   def execute(code)
@@ -9,7 +15,7 @@ class Riddle
 
   def capture_exceptions_eval(code)
     begin
-      eval(code)
+      eval(code, Object.new.create_block.binding)
     rescue => exc
       @exception = exc
     rescue LoadError => le

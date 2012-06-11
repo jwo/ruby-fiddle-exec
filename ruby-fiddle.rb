@@ -8,7 +8,7 @@ use Rack::Timeout
 Rack::Timeout.timeout = 1
 
 get '/' do
-	redirect "http://rubyfiddle.heroku.com"
+	redirect "http://rubyfiddle.com"
 end
 
 post "/" do
