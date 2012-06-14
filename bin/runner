@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require 'stringio'
+
+result = exception = nil
+begin
+  real_stdout, $stdout = $stdout, StringIO.new
+  result = eval("$SAFE = 2; #{STDIN.read}")
+rescue Exception => e
+  exception = e
+end
+
+real_stdout.print Marshal.dump([result, $stdout.string, exception])

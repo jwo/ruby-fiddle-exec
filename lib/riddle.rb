@@ -1,38 +1,18 @@
-class Object
-  def create_block
-    Proc.new {}
-  end
-end
+class Riddle
+  RUNNER = File.join(File.dirname(__FILE__), "../bin/runner")
 
-class Riddle 
   attr_reader :output, :exception, :result
+
   def execute(code)
-    capture_stdout do 
-      @result = capture_exceptions_eval(code)
+    IO.popen(RUNNER, 'r+') do |io|
+      io.write(code)
+      io.close_write
+      @result, @output, @exception = Marshal.load(io.read)
     end
+
     @result
-  end
-
-  def capture_exceptions_eval(code)
-    begin
-      eval(code, Object.new.create_block.binding)
-    rescue => exc
-      @exception = exc
-    rescue LoadError => le
-      @exception = le
-    rescue SyntaxError => se
-      @exception = se
-    end
-  end
-
-  def capture_stdout
-    s = StringIO.new
-    $stdout = s
-    result = yield
-    @output = s.string
-    result
-  ensure
-    $stdout = STDOUT
+  rescue => e
+    @exception = e
   end
 
 end
