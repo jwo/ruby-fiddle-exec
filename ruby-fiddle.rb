@@ -6,6 +6,7 @@ use Rack::Reloader
 
 require 'json'
 require './lib/riddle'
+require './lib/word_restriction_policy'
 
 require 'rack/timeout'
 use Rack::Timeout
@@ -17,9 +18,13 @@ get '/' do
 end
 
 post "/" do
-	@riddle = Riddle.new
   puts params[:code]
-	@riddle.execute(params[:code])
-	content_type :json
-	{output: @riddle.output, exception: @riddle.exception, result: @riddle.result}.to_json
+  if WordRestrictionPolicy.new.valid?(params[:code])
+    @riddle = Riddle.new
+    @riddle.execute(params[:code])
+    content_type :json
+    {output: @riddle.output, exception: @riddle.exception, result: @riddle.result}.to_json
+  else
+    {output: "", exception: "", result: "RestrictedCodeException\r\nSystem Calls disabled"}.to_json
+  end
 end
