@@ -18,6 +18,7 @@ end
 
 post "/" do
 	@riddle = Riddle.new
+  puts params[:code]
 	@riddle.execute(params[:code])
 	content_type :json
 	{output: @riddle.output, exception: @riddle.exception, result: @riddle.result}.to_json
