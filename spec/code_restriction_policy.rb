@@ -1,7 +1,7 @@
-require_relative "../lib/word_restriction_policy"
+require_relative "../lib/code_restriction_policy"
 require "rspec"
 
-describe WordRestrictionPolicy do
+describe CodeRestrictionPolicy do
 
   it "should allow normal code" do
     normal_code =<<EOCODE
