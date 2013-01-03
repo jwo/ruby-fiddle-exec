@@ -12,11 +12,11 @@ describe Riddle do
       end
       "yoy".palindrome?
 EORUBY
-    subject.execute(palindrome_code).should be_true
+    subject.execute(palindrome_code).result.should be_true
   end
 
   it "should give me the result" do
-    subject.execute("1+1").should eq(2)
+    subject.execute("1+1").result.should eq(2)
   end
 
   it "should capture the output" do
@@ -43,7 +43,7 @@ EORUBY
   end
 
 	it "shouldn't exception on a load error" do
-		expect {
+    expect {
       subject.execute("require 'nopers'; puts 'nopers'")
     }.to_not raise_error
 	end
