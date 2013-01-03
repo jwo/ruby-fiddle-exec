@@ -1,1 +1,1 @@
-web: bundle exec ruby ruby-fiddle -p $PORT
+web: bundle exec puma config.ru -p $PORT
