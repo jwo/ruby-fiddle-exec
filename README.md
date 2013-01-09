@@ -3,10 +3,6 @@ Ruby Fiddle Exec
 
 This is the thing that actually executes the codes.
 
-PLEASE do not run this thing on a public server, unless it is read only.
-
-Your execution time is limited to 1 second thanks to rack-timeout.
-
 ### Api
 
 POST to "/"  
@@ -37,12 +33,6 @@ code=puts 1/5.to_f
 {"output":"0.2\n","exception":null,"result":null}
 ```
 
-# TODOs
-
-1. Select which ruby to run against (rubinus, jruby, 187, 192, 193)
-1. Ability to specify which gems to include
-2. Add capybara to test json outputting
-
 Created by
 ---------
 
@@ -55,7 +45,7 @@ Send em! I like Pulls!
 
 MIT License
 -------
-Copyright (C) 2012, Jesse Wolgamott
+Copyright (C) 2012-2013, Jesse Wolgamott
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
