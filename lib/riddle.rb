@@ -27,23 +27,7 @@ class Riddle
 
   def process_result(result)
     return nil if result.nil?
-    JsonAble.new(result)
-  end
-
-  class JsonAble
-    attr_reader :value
-
-    def initialize(valueable)
-      if valueable.respond_to?(:to_json)
-        @value = valueable
-      else
-        @value = valueable.to_s
-      end
-    end
-
-    def as_json(*args)
-      value.to_json
-    end
+    result
   end
 
 end
