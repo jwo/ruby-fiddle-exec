@@ -33,7 +33,7 @@ EORUBY
   it "should store off the exception to exception" do
     subject.execute("1/0")
     ex = subject.exception
-    ex.should be_a(Exception)
+    ex.should eq("ZeroDivisionError: divided by 0")
   end
 
   it "shouldn't throw a syntax error" do
