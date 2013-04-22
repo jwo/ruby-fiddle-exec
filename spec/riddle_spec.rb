@@ -19,9 +19,9 @@ EORUBY
     subject.execute("1+1").result.should eq(2)
   end
 
-  it "should capture the output" do
-    subject.execute("puts 'oh hai'")
-    subject.output.should eq("oh hai\n")
+  it "should capture the output in an array of lines" do
+    subject.execute("puts 'oh hai'; puts 'yo there'")
+    subject.output.should eq(["oh hai", "yo there"])
   end
 
   it "should not actually exception" do
