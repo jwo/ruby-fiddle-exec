@@ -3,6 +3,11 @@ Ruby Fiddle Exec
 
 This is the thing that actually executes the codes.
 
+Quick Notes:
+
+* Requires JRuby 1.7
+* Runs a sandbox customized at https://github.com/jwo/jruby-sandbox
+
 ### Api
 
 POST to "/"  
