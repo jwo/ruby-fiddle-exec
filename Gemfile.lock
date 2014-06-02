@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/jwo/jruby-sandbox.git
-  revision: feda742d3fe3e8c05664deacfac2dcbbe583b665
+  revision: 1ca48986ad4eeb8b10d4157c4ecc2f749cf5cb46
   specs:
     jruby_sandbox (0.1.5)
       fakefs
