@@ -1,4 +1,9 @@
 language: ruby
 rvm:
-  - jruby
+  - jruby-head
 sudo: false
+before_install:
+  - gem install bundler
+cache: bundler
+sudo: false
+
