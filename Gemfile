@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.0.0", :engine => "jruby", :engine_version => "1.7.11"
+ruby "2.3.1", :engine => "jruby", :engine_version => "9.1.8.0-SNAPSHOT"
 
 gem "rake", "~> 0.9.2"
 gem "sinatra"
